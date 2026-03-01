@@ -1,0 +1,20 @@
+[Unit]
+Description=MnemoPane BLE Super Admin (NUS)
+Wants=bluetooth.service
+After=bluetooth.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/modernproteus/mnemopane
+ExecStart=/usr/bin/python3 -u /home/modernproteus/mnemopane/ble/mnemopane_ble_prov.py
+Restart=always
+RestartSec=2
+
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=false
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
